@@ -1,0 +1,47 @@
+import java.util.Random;
+
+import edu.princeton.cs.algs4.StdStats;
+
+class HashProbing{
+    Boolean[] myArray;
+    Integer myCounterInteger;
+    public HashProbing(int N) {
+       Random rand = new Random();
+       myCounterInteger=0;
+       myArray = new Boolean[N];
+       for (int i = 0; i < N/2; i++) {
+           insert(rand.nextInt(N)); 
+       }
+           
+           
+       for (int i = 0; i < N/2; i++) {
+       countCol(rand.nextInt(N));
+           
+       }
+    }
+    
+    public void countCol(int M) {
+        while(!myArray[M]) {
+            M++;
+            myCounterInteger++;
+        }
+    }
+    
+    public int getCount() {
+        return myCounterInteger;
+    }
+    
+    public void insert(int M) {
+        while (!myArray[M]) {
+            M++;
+        }        
+        myArray[M]= false;
+    }
+    
+    public static void main(String[] args) {
+        for (int i = 3; i <=6; i++) {
+            HashProbing myHashyHashProbing = new HashProbing((int)Math.pow(10,i));
+            StdOut.println("10^"+i+"  "+myHashyHashProbing.getCount()/Math.pow(10, i)/2);
+        }
+    }
+}

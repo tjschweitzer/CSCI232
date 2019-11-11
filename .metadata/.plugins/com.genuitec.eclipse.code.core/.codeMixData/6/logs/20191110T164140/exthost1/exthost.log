@@ -1,0 +1,33 @@
+[2019-11-10 16:41:54.009] [exthost] [info] extension host started
+[2019-11-10 16:41:54.701] [exthost] [info] extension host started
+[2019-11-10 16:41:54.721] [exthost] [info] ExtensionService#_doActivateExtension HookyQR.beautify {"startup":true,"activationEvent":"*"}
+[2019-11-10 16:41:54.721] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/pack.core.linux_3.6.0.201910290238/HookyQR.beautify-1.4.11/extension
+[2019-11-10 16:41:56.055] [exthost] [info] ExtensionService#_doActivateExtension christian-kohler.path-intellisense {"startup":true,"activationEvent":"*"}
+[2019-11-10 16:41:56.055] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/pack.core.linux_3.6.0.201910290238/christian-kohler.path-intellisense-1.4.2/out/src/extension
+[2019-11-10 16:41:56.360] [exthost] [info] ExtensionService#_doActivateExtension dbaeumer.vscode-eslint {"startup":true,"activationEvent":"*"}
+[2019-11-10 16:41:56.360] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/pack.core.linux_3.6.0.201910290238/dbaeumer.vscode-eslint-1.9.0/client/out/extension
+[2019-11-10 16:41:56.519] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-11-10 16:41:56.519] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/com.genuitec.eclipse.code.engine.app.linux.x86_64_3.6.0.201910290238/engine/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-11-10 16:41:56.750] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-11-10 16:41:56.750] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/com.genuitec.eclipse.code.engine.app.linux.x86_64_3.6.0.201910290238/engine/resources/app/extensions/emmet/dist/extension
+[2019-11-10 16:41:56.796] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.auto-close-tag {"startup":true,"activationEvent":"*"}
+[2019-11-10 16:41:56.796] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/pack.core.linux_3.6.0.201910290238/formulahendry.auto-close-tag-0.5.6/out/src/extension
+[2019-11-10 16:41:56.809] [exthost] [info] ExtensionService#_doActivateExtension vscode.grunt {"startup":false,"activationEvent":"onCommand:workbench.action.tasks.runTask"}
+[2019-11-10 16:41:56.809] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/com.genuitec.eclipse.code.engine.app.linux.x86_64_3.6.0.201910290238/engine/resources/app/extensions/grunt/dist/main
+[2019-11-10 16:41:56.888] [exthost] [info] ExtensionService#_doActivateExtension vscode.gulp {"startup":false,"activationEvent":"onCommand:workbench.action.tasks.runTask"}
+[2019-11-10 16:41:56.888] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/com.genuitec.eclipse.code.engine.app.linux.x86_64_3.6.0.201910290238/engine/resources/app/extensions/gulp/dist/main
+[2019-11-10 16:41:56.935] [exthost] [info] ExtensionService#_doActivateExtension vscode.jake {"startup":false,"activationEvent":"onCommand:workbench.action.tasks.runTask"}
+[2019-11-10 16:41:56.935] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/com.genuitec.eclipse.code.engine.app.linux.x86_64_3.6.0.201910290238/engine/resources/app/extensions/jake/dist/main
+[2019-11-10 16:41:57.024] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm {"startup":false,"activationEvent":"onCommand:workbench.action.tasks.runTask"}
+[2019-11-10 16:41:57.024] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/com.genuitec.eclipse.code.engine.app.linux.x86_64_3.6.0.201910290238/engine/resources/app/extensions/npm/dist/main
+[2019-11-10 16:41:57.101] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"activationEvent":"onCommand:workbench.action.tasks.runTask"}
+[2019-11-10 16:41:57.101] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/com.genuitec.eclipse.code.engine.app.linux.x86_64_3.6.0.201910290238/engine/resources/app/extensions/typescript-language-features/dist/extension
+[2019-11-10 16:41:57.271] [exthost] [info] ExtensionService#_doActivateExtension vscode.html-language-features {"startup":false,"activationEvent":"onLanguage:html"}
+[2019-11-10 16:41:57.271] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/com.genuitec.eclipse.code.engine.app.linux.x86_64_3.6.0.201910290238/engine/resources/app/extensions/html-language-features/client/dist/htmlMain
+[2019-11-10 16:41:57.473] [exthost] [info] ExtensionService#_doActivateExtension mkaufman.HTMLHint {"startup":false,"activationEvent":"onLanguage:html"}
+[2019-11-10 16:41:57.473] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/pack.core.linux_3.6.0.201910290238/mkaufman.HTMLHint-0.6.0/out/extension
+[2019-11-10 16:41:57.975] [exthost] [info] eager extensions activated
+[2019-11-11 11:23:46.397] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2019-11-11 11:23:46.397] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/com.genuitec.eclipse.code.engine.app.linux.x86_64_3.6.0.201910290238/engine/resources/app/extensions/configuration-editing/dist/extension
+[2019-11-11 11:23:46.560] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2019-11-11 11:23:46.560] [exthost] [info] ExtensionService#loadCommonJSModule /home/kl3pt0/.eclipse/360744294_linux_gtk_x86_64/plugins/com.genuitec.eclipse.code.engine.app.linux.x86_64_3.6.0.201910290238/engine/resources/app/extensions/json-language-features/client/dist/jsonMain

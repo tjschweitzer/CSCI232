@@ -1,0 +1,5 @@
+ComputePi.java
+~At what value of n does the estimate start to look right?
+
+The value where n seems to start looking correct is around 100,000 it seems to get the first decimal correct 
+and the second decimal place close to the correct answer

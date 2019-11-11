@@ -1,0 +1,12 @@
+(4)Read the java client. Do you understand what it's doing? Describe this in your README file.  Based on your understanding, predict what the output of the code will be.  
+	The client reads in the text file then goes though and checks to see if there is a connection from  node 10 to each  of the available nodes.  it will print yes or no then also print off the first path that connects the two nodes
+
+(6) Investigate the inner workings of the dfs recursive call found in the DepthFirstDirectedPaths constructor, using debugging with breakpoints in Eclipse. 
+
+Tell me (in the README) a little about how debugging can help understand what's going on with recursive calls. No more than 3 sentences.
+	Debugging helps you to be able to see what the variables are at a set break point. This will give us a better idea of what may be no working correctly or if maybe there is some logic or equation that is not producing the correct results 
+Explain (in the README) why the printout from the code displays a really long path from 10 to 1, when a much shorter one is available.
+	It took such a long path due to the edge from 10 to 9 being added after the connection from 10 to 1 so the connection from 10 to 1 was found going 10-9-5-1
+	TO be able to find the shortest path it would need to find all paths then find the shortest path.
+(7) Now: how does this project relate to the WordNet programming assignment? I strongly suggest sticking around in lab for a while and making the connection. Ask for help from your TA/instructor, so you'll be better prepared for the assignment.
+	The word net uses a Digraph and a will have to find the shortest path between nodes 

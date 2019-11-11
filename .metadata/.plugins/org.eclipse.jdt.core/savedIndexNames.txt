@@ -1,0 +1,20 @@
+INDEX VERSION 1.131+/home/kl3pt0/CSCI232/workspace/.metadata/.plugins/org.eclipse.jdt.core
+4240794185.index
+2073843778.index
+3459106224.index
+4118765929.index
+2899567727.index
+1264480357.index
+4067826494.index
+3978632396.index
+1925381407.index
+460390469.index
+2232784358.index
+1796994250.index
+2476707198.index
+1469817504.index
+471647324.index
+363497591.index
+646308851.index
+1819685075.index
+4034475195.index

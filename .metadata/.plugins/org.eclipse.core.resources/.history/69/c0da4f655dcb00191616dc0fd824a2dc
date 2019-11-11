@@ -1,0 +1,21 @@
+import java.util.Arrays;
+
+public class DataStats {
+      private double[] dataArray;
+      private int index;
+    public DataStats(int N) {
+         this.dataArray = new double[N];
+         this.index = 0;
+    }
+         // set up an array (to accept up to N doubles) and other member variables
+      public double mean() {
+          return (Arrays.stream(dataArray).sum())/index;
+      }
+          //compute and return the mean of the set of numbers added so far
+  public void append(double in) {
+      dataArray[index]=in;
+      index++;
+      
+  }
+     //append number to the set; throw error if more than N numbers added
+ }

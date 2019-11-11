@@ -1,0 +1,19 @@
+(5) Run the client at the command line like this:
+	How does the output differ from your expectation? 
+ 		Initally I thought there woul be more overall connections but there are not due to the edges being one directional 
+	In particular, why did it choose such a long path from 10 to 1?
+ 
+         
+         
+         
+(6) Investigate the inner workings of the dfs recursive call found in the DepthFirstDirectedPaths constructor, using debugging with breakpoints in Eclipse. 
+
+Double-click the vertical bar just to the left of the line number for line 15. This will create a breakpoint that will catch when you enter debugging mode
+Find the picture of a green bug in the toolbar. It'll be next to a white arrow in a green circle. Click the bug. This creates and starts the debugger ... but we really want to change a couple settings before continuing, so immediately click the red square off to the left of the toolbar.   (note: this may throw your eclipse layout into disarray;  you'll want to tinker with this to fix it. You should be able to revert to the Java view, away from the debugging view, using a button in the upper right corner. Ask for help if this is not clear.  Also, you may want to reorganize the default debugging view, which I find to be a mess. Again, ask for help if you need it)
+Click the little down-arrow just to the right of the bug. Choose "Debug Configurations". This should take you to configuration for "DepthFirstPathsClient"
+Click the "arguments" tab, and add "digraph_test.txt" (no quotes) to the "program arguments" field.  Click "apply" and "close" to escape.
+Now click the bug icon again;  the result should be active debugging stopped on line 15.
+Explore the functionality of the code using the "step over" and "step into" buttons (little arrows next to the red stop button). In particular, focus on your ability to follow the code several steps into the constructor's call to dfs(). Find where you can see the current stack, where you can see the values of variables, and how you can change what is "current" in the variables display by clicking around in the stack in the Debug tab.  Get help from neighbors and your TA/instructor here.
+Tell me (in the README) a little about how debugging can help understand what's going on with recursive calls. No more than 3 sentences.
+Explain (in the README) why the printout from the code displays a really long path from 10 to 1, when a much shorter one is available.
+(7) Now: how does this project relate to the WordNet programming assignment? I strongly suggest sticking around in lab for a while and making the connection. Ask for help from your TA/instructor, so you'll be better prepared for the assignment.

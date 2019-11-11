@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;autocomplete.java&apos; to &apos;Autocomplete.java&apos;&#x0A;- Original project: &apos;autocomplete&apos;&#x0A;- Original element: &apos;autocomplete.java&apos;&#x0A;- Renamed element: &apos;Autocomplete.java&apos;" description="Rename compilation unit &apos;autocomplete.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/&lt;{autocomplete.java" name="Autocomplete.java" references="false" stamp="1570138912155" version="1.0"/>
+</session>

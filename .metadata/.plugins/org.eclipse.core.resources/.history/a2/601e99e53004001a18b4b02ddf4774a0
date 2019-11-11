@@ -1,0 +1,215 @@
+import java.awt.GraphicsDevice.WindowTranslucency;
+import java.util.HashMap;
+
+import edu.princeton.cs.algs4.Bag;
+import edu.princeton.cs.algs4.BreadthFirstDirectedPaths;
+import edu.princeton.cs.algs4.Digraph;
+import edu.princeton.cs.algs4.GabowSCC;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Stack;
+
+public class ShortestCommonAncestor {
+    Digraph myDigraph;
+    boolean[] marked;
+    
+    // constructor takes a rooted DAG as argument
+    public ShortestCommonAncestor(Digraph G) {
+        myDigraph = G;
+        marked = new boolean[G.V()];
+    
+    }
+    
+    
+    
+    
+    // length of shortest ancestral path between v and wmyDigraph, v
+    public int length(int v, int w) {
+        
+        Integer minInteger = Integer.MAX_VALUE;
+        
+        Stack<Integer> myStack= new Stack<Integer>();
+        Stack<Integer> wasMarked = new Stack<Integer>();
+        
+        HashMap<Integer, Integer> vHashMap= new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> wHashMap = new HashMap<Integer, Integer>();
+        
+        Integer currentInteger =0;
+        
+        
+        myStack.push(v);
+
+        marked[v]=true;
+        while(myStack.size()!=0) {
+            Integer sizeInteger = myStack.size();
+            StdOut.println("My V stack: "+myStack+" Size of  "+sizeInteger);
+            for(int i=0; i< sizeInteger;i++) {
+               Integer temp= myStack.pop();        
+             Iterable<Integer> tempBag = myDigraph.adj(temp);
+               for (Integer integer : tempBag) {
+                   StdOut.println(integer);
+                   myStack.push(integer);
+                   vHashMap.put(integer, currentInteger);  
+            }
+           marked[temp]=true;
+           wasMarked.push(temp);
+        }
+        currentInteger++;
+    }
+    currentInteger=0;
+        
+        
+        myStack.push(w);
+        wasMarked.push(w);
+        marked[w]=true;
+        
+
+        while(myStack.size()!=0) {
+            Integer sizeInteger = myStack.size();
+            StdOut.println("My W stack: "+myStack+" Size of  "+sizeInteger);
+            for(int i=0; i< sizeInteger;i++) {
+               Integer temp= myStack.pop();        
+               
+               
+               Iterable<Integer> tempBag = myDigraph.adj(temp);
+
+               for (Integer integer : tempBag) {
+                   StdOut.println(integer);
+                   myStack.push(integer);
+                wHashMap.put(integer, currentInteger);
+            }
+
+                   marked[temp]=true;
+                   wasMarked.push(temp);
+              
+
+               
+               }
+            currentInteger++;
+       }        
+
+        for (Integer integer : wHashMap.keySet()) {
+            StdOut.println(integer+" is in W distance of "+ wHashMap.get(integer));
+        }
+
+        for (Integer integer : vHashMap.keySet()) {
+            StdOut.println(integer+" is in v distance of "+ wHashMap.get(integer));
+        }
+        
+        
+        Integer tempInteger = wasMarked.pop();       
+        for (int i = 0; i < wasMarked.size(); i++) {
+            
+       
+            StdOut.println("My marked stack: "+wasMarked+" Size of  "+wasMarked.size());
+            marked[tempInteger]=false;
+            StdOut.println(tempInteger+" V Contains "+vHashMap.containsKey(tempInteger)+" w Contains "+wHashMap.containsKey(tempInteger));
+            
+            if(vHashMap.containsKey(tempInteger)&&wHashMap.containsKey(tempInteger)) {
+                if (vHashMap.get(tempInteger)+wHashMap.get(tempInteger)<minInteger) {
+                    minInteger=vHashMap.get(tempInteger)+wHashMap.get(tempInteger);
+                    
+                }
+            }
+            tempInteger = wasMarked.pop();
+        }
+        
+        return minInteger;
+        
+        
+    }
+    
+
+    // a shortest common ancestor of vertices v and w
+    public int ancestor(int v, int w) {
+        Integer minInteger = Integer.MAX_VALUE;
+        Integer ancestorInteger =-1;
+        BreadthFirstDirectedPaths vDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, v);
+        BreadthFirstDirectedPaths wDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, w);
+        
+        for (int i = 0; i < myDigraph.V(); i++) {
+            if (vDirectedPaths.hasPathTo(i)&&wDirectedPaths.hasPathTo(i)) {
+                if (vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i)<minInteger) {
+                    minInteger=vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i);
+                    ancestorInteger=i;
+                }
+            }
+        }
+        if (minInteger<Integer.MAX_VALUE) {
+            return ancestorInteger;
+        }
+        return -1;
+        
+    }
+
+    // length of shortest ancestral path of vertex subsets A and B
+    public int length(Iterable<Integer> subsetA, Iterable<Integer> subsetB) {
+
+        Integer minInteger = Integer.MAX_VALUE;
+        BreadthFirstDirectedPaths vDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, subsetA);
+        BreadthFirstDirectedPaths wDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, subsetB);
+        
+        for (int i = 0; i < myDigraph.V(); i++) {
+            if (vDirectedPaths.hasPathTo(i)&&wDirectedPaths.hasPathTo(i)) {
+                if (vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i)<minInteger) {
+                   minInteger=vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i);
+                    
+                }
+            }
+        }
+        if (minInteger<Integer.MAX_VALUE) {
+            return minInteger;
+        }
+        return -1;
+    }
+
+    // a shortest common ancestor of vertex subsets A and B
+    public int ancestor(Iterable<Integer> subsetA, Iterable<Integer> subsetB) {
+        Integer minInteger = Integer.MAX_VALUE;
+        Integer ancestorInteger =-1;
+        BreadthFirstDirectedPaths vDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, subsetA);
+        BreadthFirstDirectedPaths wDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, subsetB);
+        
+        for (int i = 0; i < myDigraph.V(); i++) {
+            if (vDirectedPaths.hasPathTo(i)&&wDirectedPaths.hasPathTo(i)) {
+                if (vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i)<minInteger) {
+                    minInteger=vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i);
+                    ancestorInteger=i;
+                }
+            }
+        }
+        if (minInteger<Integer.MAX_VALUE) {
+            return ancestorInteger;
+        }
+
+        return -1;
+    }
+    
+    
+    public static void main(String[] args) {
+        In in = new In("digraph1.txt");
+        
+       Digraph G = new Digraph(12);
+        Integer numInteger = 11;
+        for (int i = 0; i < numInteger; i++) {
+            String[] tempStrings= in.readLine().split(",");
+            Integer v = Integer.parseInt(tempStrings[0]);
+            Integer w = Integer.parseInt(tempStrings[1]);
+            //G.addEdge(w,v);
+            G.addEdge(v, w);
+        }
+        
+
+        ShortestCommonAncestor sca = new ShortestCommonAncestor(G);
+        
+
+        StdOut.println(G);
+        
+        while (!StdIn.isEmpty()) {
+            int v = StdIn.readInt();
+            int w = StdIn.readInt();
+            int length   = sca.length(v, w);
+            int ancestor = sca.ancestor(v, w);
+            StdOut.printf("length = %d, ancestor = %d\n", length, ancestor);
+        }
+    }
+}

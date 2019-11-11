@@ -1,0 +1,49 @@
+import java.util.Comparator;
+import java.util.jar.JarException;
+
+public class Term implements Comparable<Term> {
+
+    
+    private String query;
+    private long weight;
+    // Initializes a term with the given query string and weight.
+    public Term(String query, long weight) {
+        if(query==null ) {
+            throw new NullPointerException("Entry Can not Be NULL");
+        }
+        
+            
+        if( weight>0) {
+            throw new IllegalArgumentException("Weight needs to be more  than zero";)
+        }
+        this.query=query;
+        this.weight=weight;
+        
+    }
+
+    // Compares the two terms in descending order by weight.
+    public static Comparator<Term> byReverseWeightOrder(){
+        
+    }
+
+    // Compares the two terms in lexicographic order but using only the first r characters of each query.
+    public static Comparator<Term> byPrefixOrder(int r){
+        
+    }
+
+    // Compares the two terms in lexicographic order by query.
+    public int compareTo(Term that) {
+        if (that==this)
+    }
+
+    // Returns a string representation of this term in the following format:
+    // the weight, followed by a tab, followed by the query.
+    public String toString() {
+        return weight+"\t"+ query;
+    }
+
+    // unit testing (you should have some Unit Testing here to confirm that your methods work)
+    public static void main(String[] args)   {
+        
+    }
+}

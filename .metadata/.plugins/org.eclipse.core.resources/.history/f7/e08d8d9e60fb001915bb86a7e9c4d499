@@ -1,0 +1,14 @@
+(5) Run the client at the command line like this:
+	How does the output differ from your expectation? 
+ 		Initaly I thought there would be more overall connections but there are not due to the edges being one directional 
+	In particular, why did it choose such a long path from 10 to 1?
+		It took such a long path due to the edge from 10 to 9 being added after the connection from 10 to 1 so the conenction frim 10 to 1 was found going 10-9----
+ 
+         
+         
+         
+(6) Investigate the inner workings of the dfs recursive call found in the DepthFirstDirectedPaths constructor, using debugging with breakpoints in Eclipse. 
+
+Tell me (in the README) a little about how debugging can help understand what's going on with recursive calls. No more than 3 sentences.
+Explain (in the README) why the printout from the code displays a really long path from 10 to 1, when a much shorter one is available.
+(7) Now: how does this project relate to the WordNet programming assignment? I strongly suggest sticking around in lab for a while and making the connection. Ask for help from your TA/instructor, so you'll be better prepared for the assignment.

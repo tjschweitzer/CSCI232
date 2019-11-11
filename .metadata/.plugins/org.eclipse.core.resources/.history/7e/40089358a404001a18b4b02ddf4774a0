@@ -1,0 +1,97 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import edu.princeton.cs.algs4.Bag;
+import edu.princeton.cs.algs4.DepthFirstOrder;
+import edu.princeton.cs.algs4.DepthFirstSearch;
+import edu.princeton.cs.algs4.Digraph;
+
+public class WordNet {
+
+    HashMap<Integer, Bag<String>> synsetMap = new HashMap<Integer, Bag<String>>();
+    HashMap<String, Bag<Integer>> wordMap = new HashMap<String, Bag<Integer>>();
+    Digraph myDigraph;
+    ShortestCommonAncestor mySca;
+
+    // constructor takes the name of the two input files
+    public WordNet(String synsets, String hypernyms) {
+        In synsetsIn = new In(synsets);
+        In hypernymsIn = new In(hypernyms);
+
+        Integer counterInteger = 0;
+
+        while (synsetsIn.hasNextLine()) {
+            String[] splitStrings = synsetsIn.readLine().split(",");
+            String[] synsetValues = splitStrings[1].split(" ");
+            Integer idInteger = Integer.parseInt(splitStrings[0]);
+
+            counterInteger++;
+
+            Bag<String> myBag = new Bag<String>();
+            for (int i = 0; i < synsetValues.length; i++) {
+                myBag.add(synsetValues[i]);
+                if (!wordMap.containsKey(synsetValues[i])) {
+                    Bag<Integer> tempBag = new Bag<Integer>();
+                    tempBag.add(idInteger);
+                    wordMap.put(synsetValues[i], tempBag);
+                }
+                wordMap.get(synsetValues[i]).add(idInteger);
+            }
+            synsetMap.put(idInteger, myBag);
+        }
+
+        myDigraph = new Digraph(counterInteger);
+        mySca = new ShortestCommonAncestor(myDigraph);
+
+        while (hypernymsIn.hasNextLine()) {
+            String[] parseStrings = hypernymsIn.readLine().split(",");
+            for (int i = 1; i < parseStrings.length; i++) {
+                myDigraph.addEdge(Integer.parseInt(parseStrings[0]), Integer.parseInt(parseStrings[i]));
+            }
+        }
+        // StdOut.println(myDigraph);
+    }
+
+    // all WordNet nouns
+    public Iterable<String> nouns() {
+        return wordMap.keySet();
+    }
+
+    // is the word a WordNet noun?
+    public boolean isNoun(String word) {
+        return wordMap.containsKey(word);
+    }
+
+    // return a synset (second field of synsets.txt) that is a shortest common
+    // ancestor
+    // of noun1 and noun2 (defined below)
+    public String sca(String noun1, String noun2) {
+        Bag<Integer> noun1Distance = wordMap.get(noun1);
+        Bag<Integer> noun2Distance = wordMap.get(noun2);
+
+        Integer ancestorInteger = mySca.ancestor(noun1Distance, noun2Distance);
+
+        Bag<String> ancestorBag = synsetMap.get(ancestorInteger);
+
+        return String.join("", ancestorBag);
+
+    }
+
+    // distance between noun1 and noun2 (defined below)
+    public int distance(String noun1, String noun2) {
+        Bag<Integer> noun1Distance = wordMap.get(noun1);
+        Bag<Integer> noun2Distance = wordMap.get(noun2);
+
+        return mySca.length(noun1Distance, noun2Distance);
+    }
+
+    // do unit testing of this class
+    public static void main(String[] args) {
+        WordNet myWordNet = new WordNet(args[0], args[1]);
+
+    }
+}

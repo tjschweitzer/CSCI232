@@ -1,0 +1,115 @@
+import edu.princeton.cs.algs4.BreadthFirstDirectedPaths;
+import edu.princeton.cs.algs4.Digraph;
+
+public class ShortestCommonAncestor {
+    Digraph myDigraph;
+    boolean[] marked;
+    
+    
+    // constructor takes a rooted DAG as argument
+    public ShortestCommonAncestor(Digraph G) {
+        myDigraph = G;
+    
+    }
+    
+
+    // length of shortest ancestral path between v and wmyDigraph, v
+    public int length(int v, int w) {
+        
+        Integer minInteger = Integer.MAX_VALUE;
+        BreadthFirstDirectedPaths vDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, v);
+        BreadthFirstDirectedPaths wDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, w);
+        
+        for (int i = 0; i < myDigraph.V(); i++) {
+            if (vDirectedPaths.hasPathTo(i)&&wDirectedPaths.hasPathTo(i)) {
+                if (vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i)<minInteger) {
+                    minInteger=vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i);
+                    
+                }
+            }
+        }
+        if (minInteger<Integer.MAX_VALUE) {
+            return minInteger;
+        }
+        return -1;
+        
+    }
+
+    // a shortest common ancestor of vertices v and w
+    public int ancestor(int v, int w) {
+        Integer minInteger = Integer.MAX_VALUE;
+        Integer ancestorInteger =-1;
+        BreadthFirstDirectedPaths vDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, v);
+        BreadthFirstDirectedPaths wDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, w);
+        
+        for (int i = 0; i < myDigraph.V(); i++) {
+            if (vDirectedPaths.hasPathTo(i)&&wDirectedPaths.hasPathTo(i)) {
+                if (vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i)<minInteger) {
+                    minInteger=vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i);
+                    ancestorInteger=i;
+                }
+            }
+        }
+        if (minInteger<Integer.MAX_VALUE) {
+            return ancestorInteger;
+        }
+        return -1;
+        
+    }
+
+    // length of shortest ancestral path of vertex subsets A and B
+    public int length(Iterable<Integer> subsetA, Iterable<Integer> subsetB) {
+
+        Integer minInteger = Integer.MAX_VALUE;
+        BreadthFirstDirectedPaths vDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, subsetA);
+        BreadthFirstDirectedPaths wDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, subsetB);
+        
+        for (int i = 0; i < myDigraph.V(); i++) {
+            if (vDirectedPaths.hasPathTo(i)&&wDirectedPaths.hasPathTo(i)) {
+                if (vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i)<minInteger) {
+                   minInteger=vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i);
+                    
+                }
+            }
+        }
+        if (minInteger<Integer.MAX_VALUE) {
+            return minInteger;
+        }
+        return -1;
+    }
+
+    // a shortest common ancestor of vertex subsets A and B
+    public int ancestor(Iterable<Integer> subsetA, Iterable<Integer> subsetB) {
+        Integer minInteger = Integer.MAX_VALUE;
+        Integer ancestorInteger =-1;
+        BreadthFirstDirectedPaths vDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, subsetA);
+        BreadthFirstDirectedPaths wDirectedPaths = new BreadthFirstDirectedPaths(myDigraph, subsetB);
+        
+        for (int i = 0; i < myDigraph.V(); i++) {
+            if (vDirectedPaths.hasPathTo(i)&&wDirectedPaths.hasPathTo(i)) {
+                if (vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i)<minInteger) {
+                    minInteger=vDirectedPaths.distTo(i)+wDirectedPaths.distTo(i);
+                    ancestorInteger=i;
+                }
+            }
+        }
+        if (minInteger<Integer.MAX_VALUE) {
+            return ancestorInteger;
+        }
+        return -1;
+    }
+    
+    
+    public static void main(String[] args) {
+        In in = new In("digraph1.txt");
+        Digraph G = new Digraph(in);
+        ShortestCommonAncestor sca = new ShortestCommonAncestor(G);
+        while (!StdIn.isEmpty()) {
+            int v = StdIn.readInt();
+            int w = StdIn.readInt();
+            int length   = sca.length(v, w);
+            int ancestor = sca.ancestor(v, w);
+            StdOut.printf("length = %d, ancestor = %d\n", length, ancestor);
+        }
+    }
+}
